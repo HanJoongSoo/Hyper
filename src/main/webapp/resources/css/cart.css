@@ -1,0 +1,77 @@
+@CHARSET "UTF-8";
+
+::-ms-input-placeholder {
+   color: #a8a8a8;
+}
+
+::-webkit-input-placeholder {
+   color: #a8a8a8;
+}
+
+::-moz-placeholder {
+   color: #a8a8a8;
+}
+
+body {
+   font-family: 'Lucida Grande', 'Helvetica Neue', Helvetica, Arial,
+      sans-serif;
+   font-size: 13px;
+   padding: 0;
+   margin: 0;
+   padding: 20px;
+   background: #fff;
+}
+
+h1 {
+   width: 100%;
+   margin: 0px auto;
+   text-align: center;
+}
+
+a {
+   color: #000;
+   text-decoration: none;
+}
+
+#cartbtn, #buyCart, #delCart, #cartClear, #payCart {
+   text-align: center;
+   border: 0px;
+   width: 90px;
+   height: 25px;
+   background-color: #202429;
+   color: #fff;
+   margin: 5px;
+   cursor: pointer;
+}
+
+.cart {
+   position: relative;
+   width: 900px;
+   border: 1px solid #e0e0e0;
+   padding: 0px 20px;
+   margin: 25px auto;
+}
+
+.cart th {
+   font-size: 18px;
+}
+
+.cart td {
+   border-top: 1px solid #0A0A0A;
+}
+
+.cart3 {
+   position: relative;
+   width: 900px;
+   border: 1px solid #e0e0e0;
+   padding: 0px 20px;
+   margin: 15px auto;
+}
+
+.cart3 th {
+   font-size: 18px;
+}
+
+.cart3 td {
+   border-top: 1px solid #0A0A0A;
+}

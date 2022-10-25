@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration 
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- Alias 설정 -->
+	<!-- 회원 -->
+	<typeAliases>
+		<typeAlias alias="member" type="com.hyper.model.member.MemberVO" />
+		<typeAlias alias="memberinfo" type="com.hyper.model.member.MemberVO" />
+		<typeAlias alias="productinfo" type="com.hyper.model.product.ProductInfoVO" />
+		<typeAlias alias="productcart" type="com.hyper.model.cart.ProductCartVO" />
+		<typeAlias alias="payment" type="com.hyper.model.payment.PaymentVO" />
+		<typeAlias alias="board" type="com.hyper.model.board.BoardVO" />
+		<typeAlias alias="boardqna" type="com.hyper.model.qna.QnAVO" />
+	</typeAliases>
+	
+	<!-- Sql Mapper 설정 -->
+	<!-- 회원 -->
+	<mappers>
+		<mapper resource="mappings/member/member-mapping.xml" />
+		<mapper resource="mappings/product/productinfo-mapping.xml" />
+		<mapper resource="mappings/product/productcart-mapping.xml" />
+		<mapper resource="mappings/product/payment-mapping.xml" />
+		<mapper resource="mappings/board/board-mapping.xml" />
+		<mapper resource="mappings/qna/qna-mapping.xml" />
+	</mappers>
+</configuration>

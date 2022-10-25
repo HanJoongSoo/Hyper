@@ -1,0 +1,86 @@
+@CHARSET "EUC-KR";
+
+.orderlist td{
+   border-bottom:1px solid;
+   border-color: #E1DCDC;
+}
+.list{
+   height: 50px;
+   background: #3c362d;
+   margin-top: 40px;
+   margin-bottom: 40px;
+   position:relative;
+   text-align: center;
+   color: white;
+}
+.list2{
+   margin-bottom: 100px;
+   margin-top: 50px; 
+}
+.mypage{
+   position:relative;
+   left:1330px;
+   top:20px;
+}
+.revise{
+   background-color:#7FB3FA;
+   border: 0px;
+   outline: none;
+   color: white;
+}
+.delete, .update, .cancel {
+   background-color:#7FB3FA;
+   border: 0px;
+   outline: none;
+   color: white;
+}
+.delete, .cancle {
+   position : relative;
+}
+.pwcheck{
+   margin-top:50px;
+}
+.pwcheck th{
+   padding-bottom: 20px;
+}
+.checkbtn{
+   margin-bottom: 100px;
+}
+#f1rm table{
+   margin-top: 50px;
+   margin-bottom: 40px;
+}
+#f1rm th{
+   border-right: 1px solid #E1DCDC;
+}
+#f1rm th,td{
+
+   color: black;
+}
+.block{
+   background: #202429;
+   color: white;
+}
+.block1 th{
+   border:1px solid #E1DCDC;
+   background: #202429;
+   color: white;
+}
+#a{
+   border-bottom:1px solid #E1DCDC;
+}
+input[type=button] {
+   border: none;
+   background-color: #e8e4df;
+   color: black;
+   cursor: pointer;
+}
+
+#nav ul li{
+   position:relative !important;
+}
+
+#mem{
+   position:relative;
+   top:15px;
+}

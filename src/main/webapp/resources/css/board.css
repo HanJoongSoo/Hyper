@@ -1,0 +1,102 @@
+@CHARSET "UTF-8";
+.name {
+	margin-bottom:-45px;
+	
+}
+.list1 {
+	color: #fff;
+	background: #202429;
+	border-top: 1px solid;
+	border-bottom:1px solid;
+	
+}
+.list2 {
+	background: #fff;
+	border-bottom:1px solid;
+	border-color: #E1DCDC;
+	font-size: medium;
+}
+.list-left {
+	color: #fff;
+	background: #202429;
+	border-top: 1px solid;
+	border-bottom:1px solid;
+	border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.list-right {
+	color: #fff;
+	background: #202429;
+	border-top: 1px solid;
+	border-bottom:1px solid;
+	border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.check2 {
+	width: 75;
+	font-family: 돋움;
+	background-color:#190033;
+	width: 50px;
+	height: 25px;
+	border: 0px;
+	outline: none;
+	color: white;
+}
+#searchOption {
+	height: 25px;
+	width: 125px;
+	margin: 10px;
+	border: 1px solid #190033;
+	background: #ffffff;
+	height: 25px;
+}
+#keyword {
+	border: 1px solid #190033;
+	background: #ffffff;
+	height: 25px;
+}
+.text {
+	background-color:#202429;
+	width: 70px;
+	height: 25px;
+	border: 0px;
+	outline: none;
+	color: white;
+}
+.textb {
+	border: 1px solid #8D8D8C;
+	}
+.write {
+	background-color:#202429;
+	width: 75px;
+	height: 25px;
+	border: 0px;
+	outline: none;
+	color: white;
+	margin-bottom: 20px;
+	cursor: pointer;
+}
+.listp {
+	background-color:#202429;
+	width: 50px;
+	height: 25px;
+	border: 0px;
+	outline: none;
+	color: white;
+	margin-top: -50px;
+	cursor: pointer;
+}
+.listp2 {
+	background-color:#202429;
+	width: 70px;
+	height: 25px;
+	border: 0px;
+	outline: none;
+	color: white;
+	margin-top: -50px;
+}
+.asd{
+	position: relative;
+	top:10px;
+	left: 10px;
+}

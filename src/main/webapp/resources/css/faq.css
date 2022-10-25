@@ -1,0 +1,97 @@
+#container {
+	width: 1000px;
+	overflow: hidden;
+	height: auto;
+	margin: 0px auto;
+	padding: 20px;
+	height: auto;
+}
+
+#sidebar {
+	width: 900px;
+	padding: 20px;
+	margin-bottom: 20px;
+	float: right;
+	position: relative;
+	right:100px;
+}
+
+#content {
+	width: 300px;
+	padding: 20px;
+	float: left;
+}
+
+#footer {
+	clear: both;
+	padding: 20px;
+}
+
+#header {
+	text-align: center;
+}
+
+ul, li {
+	margin: 0px;
+	list-style: none;
+}
+
+ul {
+	display: block;
+	list-style-type: disc;
+	margin-block-start: 1em;
+	margin-block-end: 1em;
+	margin-inline-start: 0px;
+	margin-inline-end: 0px;
+	padding-inline-start: 40px;
+}
+
+li {
+	display: list-item;
+	text-align: -webkit-match-parent;
+}
+
+<!--
+사이드바 css>nav {
+	width: 150px;
+}
+
+ul {
+	padding: 0;
+}
+
+li {
+	list-style: none;
+}
+
+.atag {
+	display: block;
+	text-decoration: none;
+	color: #616161;
+	text-align: left;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+#main_menu {
+	float: left;
+	line-height: 40px;
+	width: 100%;
+	padding: 50px;
+}
+
+.snd_menu {
+	background: #efefef;
+}
+
+.trd_menu {
+	background: #ddd;
+}
+
+.sub_menu {
+	display: none;
+} /* 서브메뉴들 숨김 */
+.selec {
+	background: #5D5D5D;
+	color: #efefef;
+} /* 임시 클래스(선택) */

@@ -1,0 +1,111 @@
+@CHARSET "UTF-8";
+
+view {
+   table-layout: fixed;
+   #E1DCDC
+}
+.simpleView { 
+    border-collapse: collapse; 
+    border-spacing: 0px;
+}
+
+.a {
+   border-top: 2px solid #000;
+   border-bottom: 1px dashed black;
+}
+.b {
+   border-bottom: 2px solid #000;
+   border-top: 1px dashed black;
+}
+.tdS {
+   width: 100px;
+}
+.previous {
+   font-family: 돋움;
+   background-color:#708090;
+   width: 70px;
+   height: 25px;
+   border: 0px;
+   outline: none;
+   color: white;
+   cursor: pointer;
+}
+.previous:hover {
+   color: #483d8b;
+}
+.next {
+   font-family: 돋움;
+   background-color:#708090;
+   width: 70px;
+   height: 25px;
+   border: 0px;
+   outline: none;
+   color: white;
+   cursor: pointer;
+}
+.next:hover {
+   color: #483D8B;
+}
+
+#list_btn {
+   font-family: 돋움;
+   background-color:#190033;
+   width: 50px;
+   height: 25px;
+   border: 0px;
+   outline: none;
+   color: white;
+   cursor: pointer;
+}
+#list_btn2 {
+   font-family: 돋움;
+   background-color:#190033;
+   width: 60px;
+   height: 25px;
+   border: 0px;
+   outline: none;
+   color: white;
+   cursor: pointer;
+}
+#list_btn3 {
+   font-family: 돋움;
+   background-color:#190033;
+   width: 70px;
+   height: 25px;
+   border: 0px;
+   outline: none;
+   color: white;
+   cursor: pointer;
+}
+.adjust {
+   border: 1px solid #B0C4DE;
+}
+#update {
+   font-family: 돋움;
+   background-color:#708090;
+   width: 70px;
+   height: 25px;
+   border: 0px;
+   outline: none;
+   color: white;
+}
+#update:hover {
+   color: #483d8b;
+}
+
+#fivetb {
+   margin: auto;
+   border-collapse: collapse;
+   border-top: 1px solid none;
+}
+
+#fivetb th, td {
+   padding: 10px;
+   font-size: large;
+}
+.fivet1{
+   background: #e8f4f5;
+}
+.fivet2{
+   background:#ffe6e6;
+}

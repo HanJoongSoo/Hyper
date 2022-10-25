@@ -1,0 +1,92 @@
+@CHARSET "UTF-8";
+
+section body {
+	background: #eaeaea;
+	color: #999;
+	font: 100%/1.5em sans-serif;
+	margin: 0;
+}
+
+section input {
+	border: none;
+	font-family: inherit;
+	font-size: inherit;
+	margin: 0;
+	outline: none;
+	-webkit-appearance: none;
+}
+
+#login-form {
+	margin: 20px auto;
+	width: 300px;
+}
+
+#login-form h1 {
+	background-color: #282830;
+	border-radius: 5px 5px 0 0;
+	color: #fff;
+	font-size: 14px;
+	margin: 0;
+	padding: 10px 0px;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+#login-form fieldset {
+	text-align: center; position : relative;
+	background: #fff;
+	border: 1px solid black;
+	border-radius: 0 0 5px 5px;
+	margin: 0;
+	padding: 10px;
+	position: relative;
+}
+
+#login-form fieldset:before {
+	background-color: #fff;
+	content: "";
+	height: 8px;
+	left: 50%;
+	margin: -4px 0 0 -4px;
+	position: absolute;
+	top: 0;
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+	transform: rotate(45deg);
+	width: 8px;
+}
+
+#login-form input {
+	font-size: 14px;
+}
+
+#login-form input[type="text"] {
+	border-radius: 3px 3px 0 0;
+	border: 1px solid #dcdcdc;
+	padding: 10px;
+	width: 240px;
+}
+
+#login-form input[type="email"] {
+	border-top: none;
+	border-radius: 0px 0px 3px 3px;
+	border: 1px solid #dcdcdc;
+	padding: 10px;
+	width: 240px;
+}
+
+#login-form input[type="button"] {
+	background: #1dabb8;
+	border-radius: 3px;
+	color: #fff;
+	font-weight: bold;
+	margin-top: 10px;
+	padding: 10px;
+	cursor: pointer;
+}
+
+#login-form input[type="button"]:hover {
+	background: #198d98;
+}

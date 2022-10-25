@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ProductInfoDAO">
+	<resultMap id="productinfo" type="productinfo">
+		<result property="cate_id" column="CATE_ID" />
+		<result property="prd_date" column="PRD_DATE" />
+		<result property="prd_name" column="PRD_NAME" />
+		<result property="prd_id" column="PRD_ID" />
+		<result property="prd_price" column="PRD_PRICE" />
+		<result property="prd_img" column="PRD_IMG" />
+		<result property="prd_delivery" column="PRD_DELIVERY" />
+		<result property="prd_stock" column="PRD_STOCK" />
+		<result property="prd_option" column="PRD_OPTION" />
+		<result property="prd_discount" column="PRD_DISCOUNT" />
+		<result property="prd_explain" column="PRD_EXPLAIN" />
+	</resultMap>
+
+	<select id="prdCheckID" resultType="java.lang.Integer">
+		SELECT COUNT(*) FROM
+		PRODUCT_INFO
+		WHERE PRD_ID=#{prd_id}
+	</select>
+	
+	<select id="listSearchPrd" resultMap="productinfo">
+		SELECT * FROM (
+			SELECT ROWNUM AS RN, A.* FROM (
+				SELECT * FROM PRODUCT_INFO
+				WHERE UPPER(PRD_NAME) LIKE UPPER('%'||#{sPrd}||'%') OR LOWER(PRD_NAME) LIKE LOWER('%'||#{sPrd}||'%')
+			) A
+		) WHERE RN BETWEEN #{start} AND #{end}
+	</select>
+	
+	<select id="countSearchPrd" resultType="java.lang.Integer">
+		SELECT COUNT(*) 
+		FROM PRODUCT_INFO 
+		WHERE UPPER(PRD_NAME) LIKE UPPER('%'||#{sPrd}||'%') 
+		OR LOWER(PRD_NAME) LIKE LOWER('%'||#{sPrd}||'%')
+	</select>
+
+	<insert id="insertProduct">
+		<![CDATA[
+			INSERT INTO PRODUCT_INFO (
+				CATE_ID,
+				PRD_NAME,
+				PRD_ID,
+				PRD_PRICE,
+				PRD_IMG,
+				PRD_DELIVERY,
+				PRD_STOCK,
+				PRD_OPTION,
+				PRD_DISCOUNT,
+				PRD_EXPLAIN
+			) VALUES (
+				#{cate_id},
+				#{prd_name},
+				#{prd_id},
+				#{prd_price},
+				#{prd_img},
+				#{prd_delivery},
+				#{prd_stock},
+				#{prd_option},
+				#{prd_discount},
+				#{prd_explain}
+			)
+		]]>
+	</insert>
+	
+	<update id="updateProduct">
+		UPDATE PRODUCT_INFO
+		SET
+		CATE_ID = #{cate_id},
+		PRD_NAME = #{prd_name},
+		PRD_PRICE = #{prd_price},
+		<!-- PRD_IMG = #{prd_img}, -->
+		PRD_DELIVERY = #{prd_delivery}, 
+		PRD_STOCK = #{prd_stock},
+		PRD_OPTION = #{prd_option},
+		PRD_DISCOUNT = #{prd_discount}, 
+		PRD_EXPLAIN = #{prd_explain}
+		WHERE
+		PRD_ID = #{prd_id}
+	</update>
+	
+	<delete id="deleteProduct">
+	DELETE FROM PRODUCT_INFO WHERE PRD_ID=#{prd_id} AND CATE_ID=#{cate_id}
+	</delete>
+
+	<select id="productDetail" resultMap="productinfo">
+		<![CDATA[
+			SELECT * FROM PRODUCT_INFO WHERE PRD_ID=#{prd_id}
+		]]>
+	</select>
+
+	<select id="getProductList" resultMap="productinfo">
+		<![CDATA[
+			SELECT * FROM (
+				SELECT ROWNUM AS RN, A.* FROM (
+					SELECT * FROM PRODUCT_INFO WHERE CATE_ID=#{product.cate_id} ORDER BY PRD_ID DESC
+				) A
+			) WHERE RN BETWEEN #{start} AND #{end}
+		]]>
+	</select>
+	
+	<select id="getAdminProductList" resultMap="productinfo">
+		<![CDATA[
+			SELECT CATE_ID, nvl(prd_img, 'resource/img/product/') AS PRD_IMG, PRD_NAME, PRD_ID, PRD_PRICE FROM (
+				SELECT ROWNUM AS RN, A.* FROM (
+					SELECT * FROM PRODUCT_INFO ORDER BY PRD_ID DESC
+				) A
+			) WHERE RN BETWEEN #{start} AND #{end}
+		]]>
+	</select>
+	
+	<select id="getCountProduct" resultType="java.lang.Integer">
+		<![CDATA[
+			SELECT COUNT(*) FROM PRODUCT_INFO WHERE CATE_ID=#{cate_id}
+		]]>
+	</select>
+	
+	<select id="getAdminCountProduct" resultType="java.lang.Integer">
+		<![CDATA[
+			SELECT COUNT(*) FROM PRODUCT_INFO
+		]]>
+	</select>
+</mapper>

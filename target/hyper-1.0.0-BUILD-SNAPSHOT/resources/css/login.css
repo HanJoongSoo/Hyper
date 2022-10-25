@@ -1,0 +1,407 @@
+@CHARSET "UTF-8";
+
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+
+div {
+    display: block;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+    font-family: "Noto Sans KR", sans-serif;
+    color: rgb(32, 36, 41);
+    background: rgb(255, 255, 255);
+}
+
+#wrap {
+    max-width: 640px;
+    margin: 0px auto;
+}
+
+#container {
+    min-height: calc((100vh - 391px) - 56px);
+}
+
+.container-bar {
+    position: relative;
+    height: 56px;
+    line-height: 0;
+}
+
+.divBlind {
+    position: absolute;
+    top: -1px;
+    left: 0px;
+    width: 100%;
+    height: 1px;
+    z-index: -1;
+}
+
+.container-bar header.navbar {
+    border-bottom: 1px solid rgb(242, 243, 245);
+}
+
+header.navbar {
+    position: static;
+    max-width: 640px;
+}
+
+.container-bar-in {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    z-index: 200;
+}
+
+.back-header-icon {
+    position: relative;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    width: 100%;
+    height: 56px;
+    padding: 0px 16px;
+    background: rgb(255, 255, 255);
+}
+
+.header-icon {
+    margin-right: auto;
+}
+
+.header-icon svg {
+    width: 28px;
+    height: 28px;
+}
+
+.css-icon {
+    height: auto;
+    width: 24px;
+    cursor: pointer;
+}
+
+svg[fill="none"] {
+    fill: none;
+}
+
+path[d="M15 5L8 12L15 19"] {
+    d: path("M 15 5 L 8 12 L 15 19");
+    stroke: rgb(32, 36, 41);
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+
+
+
+/*로그인 타이틀 문구있는 부분*/
+.login-title {
+    max-height: calc(100vh - 56px);
+}
+
+.login-title-box {
+    margin-top: 26px;
+    white-space: pre-line;
+}
+
+.login-title-box-header {
+    background: transparent;
+    padding: 14px 24px 18px;
+}
+
+.login-title-text {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.login-title-h3 {
+    margin: 0px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    word-break: keep-all;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding: 0px;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.display2 {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 34px;
+}
+
+.loginsub {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    max-height: 40px;
+    margin: 6px 0px 0px;
+    color: rgb(122, 127, 134);
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.body2 {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+/*로그인 폼*/
+.login-form-wrap {
+    padding: 6px 24px;
+}
+
+.login-form-wrap .login-form-group {
+    margin-bottom: 10px;
+}
+
+.fieldId {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.login-form-input {
+    width: 100%;
+}
+
+.login-form-input-text {
+    position: relative;
+}
+
+.input-id {
+    /*아이디입력부분*/
+    width: 100%;
+    padding: 11px 16px;
+    border: 1px solid rgb(228, 230, 233);
+    background: rgb(255, 255, 255);
+    font-weight: bold;
+    color: rgb(32, 36, 41);
+    opacity: 1;
+    border-radius: 6px;
+    height: 46px;
+    font-size: 16px;
+}
+
+input,
+textarea,
+button {
+    appearance: none;
+}
+
+.input-password {
+    /*비밀번호입력*/
+    width: 100%;
+    padding: 11px 43px 11px 16px;
+    border: 1px solid rgb(228, 230, 233);
+    background: rgb(255, 255, 255);
+    font-weight: bold;
+    color: rgb(32, 36, 41);
+    opacity: 1;
+    border-radius: 6px;
+    height: 46px;
+    font-size: 16px;
+}
+
+.pwd-css {
+    position: absolute;
+    top: 50%;
+    right: 11px;
+    transform: translateY(-50%);
+    font-size: 0px;
+    z-index: 1;
+}
+
+.pwd-css button {
+    display: inline-block;
+    padding: 0px;
+    border: none;
+    background: transparent;
+    font-size: 0px;
+    cursor: pointer;
+}
+
+.pwd-css svg {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.login-btn {
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    vertical-align: middle;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    box-sizing: border-box;
+    font-size: 0px;
+    font-weight: 700;
+    font-family: "Noto Sans KR";
+    padding: 0px 16px;
+    text-decoration: none;
+    background: rgb(32, 36, 41);
+    color: white;
+    height: 52px;
+    border-radius: 8px;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.login-form-wrap .loginBtn {
+    margin-bottom: 24px;
+}
+
+.login-btn .text {
+    text-decoration: none;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.button1 {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 100%;
+}
+
+/*에러 메시지*/
+.input-message-error {
+    color: rgb(255, 10, 10);
+    text-align: center;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+/*로그인하단 아이디 찾기 비번찾기 회원가입 버튼*/
+.textBtn {
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    margin-bottom: 2px;
+}
+
+.textBtn button {
+    position: relative;
+    padding-right: 16px;
+}
+
+.textBtn button:first-child {
+    margin-left: 0px;
+}
+
+.textBtn button::after {
+    content: "";
+    display: block;
+    position: absolute;
+    right: 0px;
+    top: 3px;
+    width: 1px;
+    height: 10px;
+    background-color: rgb(228, 230, 233);
+}
+
+.text-btn-css {
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    vertical-align: middle;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    box-sizing: border-box;
+    font-size: 0px;
+    font-family: "Noto Sans KR";
+    color: rgb(32, 36, 41);
+    background: none;
+    padding: 0px;
+    text-decoration: none;
+}
+
+
+.text-btn-css .text {
+    text-decoration: none;
+    padding-bottom: 2px;
+    letter-spacing: 0.0175em;
+}
+
+.button2 {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 100%;
+}
+
+.sns-line {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: nowrap;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.sns-line p {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    color: rgb(122, 127, 134);
+    text-align: center;
+    padding: 0px 8px;
+}
+
+.sns-line .before,
+.sns-line .after {
+    width: 229.5px;
+    display: block;
+    height: 1px;
+    background: rgb(207, 210, 215);
+}
+
+/*sns 로그인 아이콘*/
+.css-pz4faq {
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    padding: 0px 38px;
+    margin: 0px;
+}
+
+.css-pz4faq a {
+    display: inline-block;
+    margin-right: 16px;
+    cursor: pointer;
+}
+
+.css-pz4faq .ir {
+    height: 0px;
+    line-height: 0;
+    font-size: 0px;
+    overflow: hidden;
+    text-indent: -10000px;
+}

@@ -1,0 +1,83 @@
+@CHARSET "UTF-8";
+
+::-ms-input-placeholder {
+	color: #a8a8a8;
+}
+
+::-webkit-input-placeholder {
+	color: #a8a8a8;
+}
+
+::-moz-placeholder {
+	color: #a8a8a8;
+}
+
+::-moz-placeholder {
+	color: #a8a8a8;
+}
+
+body {
+	font-family: 'Lucida Grande', 'Helvetica Neue', Helvetica, Arial,
+		sans-serif;
+	font-size: 13px;
+	padding: 0;
+	margin: 0;
+	padding: 20px;
+	background: #fff;
+}
+
+h1 {
+	width: 100%;
+	margin: 0px auto;
+	text-align: center;
+}
+
+a {
+	color: #000;
+	text-decoration: none;
+}
+
+.btn {
+	border: 0px;
+	outline: none;
+	background-color: transparent;
+	z-index: 100;
+}
+
+/* 상품 테이블 */
+#pdc{
+	text-align: center;
+	font-size: xx-large;
+    padding-bottom: 15px;
+}
+
+#product {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+#product tr td:hover {
+	transform: scale(1.06);
+}
+
+#product, #product tr, #product tr td {
+	width: 300px;
+	padding: 10px 20px;
+}
+
+.size {
+	font-size: 18px;
+	font-weight: bold;
+	color: #9f7c3c;
+}
+
+.pri {
+	font-size: 15px;
+}
+
+.size2 {
+	font-size: 17px;
+	font-weight: bold;
+	color: #9f7c3c;
+}

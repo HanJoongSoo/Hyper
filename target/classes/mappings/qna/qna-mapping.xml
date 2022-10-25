@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="QnADAO">
+	<!-- 답글 -->
+	<update id="answerQnABoard">
+		UPDATE BOARDQNA
+		SET
+		ANSWER = #{answer}
+		WHERE
+		BNO = #{bno}
+	</update>
+	<!-- 글쓰기 -->
+	<insert id="createQnABoard">
+		INSERT INTO BOARDQNA (
+			BNO, 
+			TITLE, 
+			CONTENT, 
+			WRITER
+		) VALUES(
+			BOARDQNA_SEQ.NEXTVAL, 
+			#{title}, 
+			#{content}, 
+			#{writer}
+		)
+	</insert>
+
+	<!-- 글 수정 -->
+	<update id="updateQnABoard">
+		UPDATE BOARDQNA
+		SET
+		TITLE = #{title},
+		CONTENT = #{content}
+		WHERE
+		BNO = #{bno}
+	</update>
+
+	<!-- 글 삭제 -->
+	<delete id="deleteQnABoard">
+		UPDATE BOARDQNA SET SHOW='N' WHERE BNO = #{bno}
+	</delete>
+
+	<!-- 글 삭제 체크 -->
+	<select id="checkQnABoard" resultType="java.lang.Integer"> 
+		SELECT COUNT(*) FROM BOARDQNA WHERE BNO = #{bno} AND SHOW = 'Y' 
+	</select>
+
+	<!-- 조회수 -->
+	<update id="viewCntQnA">
+		UPDATE BOARDQNA
+		SET
+		VIEWCNT = VIEWCNT+1
+		WHERE
+		BNO = #{bno}
+	</update>
+
+	<!-- 게시글 보기 -->
+	<select id="readQnABoard" resultType="boardqna">
+		SELECT 
+		*
+		FROM 
+		BOARDQNA
+		WHERE
+		BNO = #{bno} AND SHOW = 'Y'
+	</select>
+	
+	<!-- 이전글 -->
+	<select id="QnApreviousB" resultType="boardqna">
+	<![CDATA[
+	SELECT * FROM BOARDQNA WHERE BNO = 
+	(SELECT MAX(BNO) FROM BOARDQNA WHERE SHOW='Y' AND BNO < #{bno})
+	]]>
+	</select>
+	
+	<!-- 다음글 -->
+	<select id="QnAnextB" resultType="boardqna">
+	<![CDATA[
+	SELECT * FROM BOARDQNA WHERE BNO = 
+	(SELECT MIN(BNO) FROM BOARDQNA WHERE SHOW='Y' AND BNO > #{bno})
+	]]>
+	</select>
+
+	<!-- 목록 -->
+	<select id="listAllQnABoard" resultType="boardqna">
+		SELECT * FROM 
+		(SELECT ROWNUM AS RN, A.* FROM (SELECT * FROM (
+		SELECT * FROM BOARDQNA <include refid="search"></include>
+		) ORDER BY BNO DESC, REGDATE DESC) A ) 
+		WHERE RN BETWEEN #{start} AND #{end}
+	</select>
+	
+	<!-- 게시글 갯수 -->
+	<select id="getCountQnABoard" resultType="java.lang.Integer">
+		SELECT COUNT(*) FROM BOARDQNA <include refid="search"></include>
+	</select>
+	
+	<!-- 검색조건 -->
+	<sql id="search">
+		<choose>
+			<when test="searchOption == 'ALL'">
+				WHERE SHOW='Y' AND (WRITER LIKE '%'||#{keyword}||'%'
+				OR CONTENT LIKE LOWER('%'||#{keyword}||'%')
+				OR CONTENT LIKE UPPER('%'||#{keyword}||'%')
+				OR TITLE LIKE LOWER('%'||#{keyword}||'%')
+				OR TITLE LIKE UPPER('%'||#{keyword}||'%')
+				)
+			</when>
+			<otherwise>
+				WHERE SHOW='Y' AND 
+				(${searchOption} LIKE LOWER('%'||#{keyword}||'%') OR
+				${searchOption} LIKE UPPER('%'||#{keyword}||'%'))
+			</otherwise>
+		</choose>
+	</sql>
+	
+</mapper>

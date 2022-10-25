@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="MemberDAO">
+
+    <resultMap id="member" type="member">
+
+        <id property="member_seq" column="MEMBER_SEQ"/>
+
+        <id property="member_id" column="MEMBER_ID"/>
+
+        <result property="member_name" column="MEMBER_NAME"/>
+
+        <result property="member_pwd" column="MEMBER_PWD"/>
+
+        <result property="member_year" column="MEMBER_YEAR"/>
+
+        <result property="member_date" column="MEMBER_DATE"/>
+
+        <result property="member_email" column="MEMBER_EMAIL"/>
+
+        <result property="member_phone" column="MEMBER_PHONE"/>
+
+        <result property="member_zipcode" column="MEMBER_ZIPCODE"/>
+
+        <result property="member_faddr" column="MEMBER_FADDR"/>
+
+        <result property="member_laddr" column="MEMBER_LADDR"/>
+
+    </resultMap>
+
+
+    <select id="checkID" resultType="java.lang.Integer">
+
+        SELECT COUNT(*)
+        FROM MEMBER
+
+        WHERE MEMBER_ID = #{member_id}
+
+    </select>
+
+
+    <select id="checkMember" resultType="java.lang.Integer">
+
+        SELECT COUNT(*)
+        FROM MEMBER
+
+        WHERE MEMBER_ID = #{member_id}
+          AND MEMBER_PWD = #{member_pwd}
+
+    </select>
+
+
+    <insert id="insertMember">
+
+		<![CDATA[
+        INSERT INTO MEMBER (MEMBER_SEQ,
+                            MEMBER_ID,
+                            MEMBER_PWD,
+                            MEMBER_NAME,
+                            MEMBER_YEAR,
+                            MEMBER_EMAIL,
+                            MEMBER_PHONE,
+                            MEMBER_ZIPCODE,
+                            MEMBER_FADDR,
+                            MEMBER_LADDR)
+        VALUES (ID_SEQ.NEXTVAL,
+                #{member_id},
+                #{member_pwd},
+                #{member_name},
+                TO_DATE(#{member_year}, 'yyyy-mm-dd'),
+                #{member_email},
+                #{member_phone},
+                #{member_zipcode},
+                #{member_faddr},
+                #{member_laddr})
+        ]]>
+
+	</insert>
+
+
+    <update id="updateMember">
+
+        UPDATE MEMBER
+
+        SET MEMBER_PWD     = #{member_pwd},
+
+            MEMBER_EMAIL   = #{member_email},
+
+            MEMBER_PHONE   = #{member_phone},
+
+            MEMBER_FADDR   = #{member_faddr},
+
+            MEMBER_LADDR   = #{member_laddr},
+
+            MEMBER_ZIPCODE = #{member_zipcode}
+
+        WHERE MEMBER_ID = #{member_id}
+
+    </update>
+
+
+    <delete id="deleteMember">
+
+        DELETE
+        FROM MEMBER
+
+        WHERE MEMBER_ID = #{member_id}
+
+    </delete>
+
+
+    <select id="login" resultMap="member">
+
+		<![CDATA[
+        SELECT *
+        FROM MEMBER
+
+        WHERE MEMBER_ID = #{member_id}
+          AND MEMBER_PWD = #{member_pwd}
+        ]]>
+
+	</select>
+
+
+    <select id="getAll" resultMap="member">
+
+        SELECT *
+        FROM MEMBER
+
+    </select>
+
+    <select id="orderMember" resultType="payment">
+
+        SELECT * FROM(
+
+        SELECT ROWNUM AS RN, A.* FROM (
+
+        SELECT * FROM (
+
+        SELECT PRD_ID, PAYMENT_ID, PAYMENT_DATE, PRD_NAME, DELIVERY,
+
+        ((PRD_PRICE - PRD_DISCOUNT) * BUY_QUANTITY + PRD_DELIVERY) AS PRD_SUM
+
+        FROM PRODUCT_PAYMENT NATURAL JOIN PRODUCT_INFO WHERE MEMBER_ID = #{member_id}
+
+        <include refid="myp"></include>
+
+        ) ORDER BY PAYMENT_DATE DESC
+
+        ) A
+
+        ) WHERE RN BETWEEN #{start} AND #{end}
+
+    </select>
+
+
+    <select id="orderCount" resultType="java.lang.Integer">
+
+        SELECT COUNT(*)
+        FROM PRODUCT_PAYMENT
+        WHERE MEMBER_ID = #{member_id}
+
+    </select>
+
+
+    <sql id="myp">
+
+        AND PAYMENT_DATE BETWEEN ADD_MONTHS(SYSDATE, -3) AND SYSDATE
+
+    </sql>
+
+
+    <select id="findId" resultType="member">
+
+        select *
+        from MEMBER
+        where MEMBER_NAME = #{member_name}
+          and MEMBER_PHONE = #{member_phone}
+
+    </select>
+
+
+    <select id="findPassword" resultType="member">
+
+        SELECT *
+        FROM MEMBER
+        WHERE MEMBER_ID = #{member_id}
+          AND MEMBER_NAME = #{member_name}
+          and MEMBER_PHONE = #{member_phone}
+
+    </select>
+
+
+    <update id="updatePassword">
+
+        UPDATE MEMBER
+        SET MEMBER_PWD=#{member_pwd}
+        WHERE MEMBER_ID = #{member_id}
+
+    </update>
+    <!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@관리자용 회원정보수정@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+    <resultMap id="memberinfo" type="memberinfo">
+        <result property="member_id" column="MEMBER_ID"/>
+        <result property="member_name" column="MEMBER_NAME"/>
+        <result property="member_date" column="MEMBER_DATE"/>
+        <result property="member_email" column="MEMBER_EMAIL"/>
+        <result property="member_phone" column="MEMBER_PHONE"/>
+        <result property="member_faddr" column="MEMBER_FADDR"/>
+        <result property="member_laddr" column="MEMBER_LADDR"/>
+        <result property="member_seq" column="MEMBER_SEQ"/>
+    </resultMap>
+
+    <select id="getAdminCountMember" resultType="java.lang.Integer">
+
+		<![CDATA[
+        SELECT COUNT(*)
+        FROM MEMBER
+        ]]>
+
+	</select>
+
+
+    <select id="getAdminMemberList" resultMap="memberinfo">
+
+        SELECT MEMBER_ID,
+               MEMBER_NAME,
+               MEMBER_DATE,
+               MEMBER_EMAIL,
+               MEMBER_PHONE,
+               MEMBER_FADDR,
+               MEMBER_LADDR,
+               MEMBER_SEQ
+        FROM (SELECT ROWNUM AS RN, A.*
+              FROM (SELECT *
+                    FROM MEMBER
+                    ORDER BY MEMBER_DATE DESC) A)
+
+        WHERE RN BETWEEN #{start} AND #{end}
+
+    </select>
+
+    <update id="updateMember2">
+
+        UPDATE MEMBER
+
+        SET MEMBER_PWD     = #{member_pwd},
+
+            MEMBER_EMAIL   = #{member_email},
+
+            MEMBER_PHONE   = #{member_phone},
+
+            MEMBER_FADDR   = #{member_faddr},
+
+            MEMBER_LADDR   = #{member_laddr},
+
+            MEMBER_ZIPCODE = #{member_zipcode}
+
+        WHERE MEMBER_ID = #{member_id}
+
+    </update>
+    <select id="memberDetail" resultMap="member">
+
+		<![CDATA[
+        SELECT *
+        FROM MEMBER
+        WHERE MEMBER_ID = #{member_id}
+        ]]>
+
+	</select>
+
+    <!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+</mapper>

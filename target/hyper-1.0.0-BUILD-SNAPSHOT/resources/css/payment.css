@@ -1,0 +1,106 @@
+@CHARSET "UTF-8";
+
+::-ms-input-placeholder {
+   color: #a8a8a8;
+}
+
+::-webkit-input-placeholder {
+   color: #a8a8a8;
+}
+
+::-moz-placeholder {
+   color: #a8a8a8;
+}
+
+.input {
+   height: 23px;
+}
+
+body {
+   font-family: 'Lucida Grande', 'Helvetica Neue', Helvetica, Arial,
+      sans-serif;
+   font-size: 13px;
+   padding: 0;
+   margin: 0;
+   padding: 20px;
+   background: #fff;
+   padding: 0;
+}
+
+#container {
+   margin: 0 auto;
+   width: 900px;
+}
+
+a {
+   color: #000;
+   text-decoration: none;
+}
+
+h3 {
+   position: relative;
+}
+
+#oSW, #oSI, #oSD, #oSP, #pay {
+   width: 100%;
+   margin: 0 auto;
+   position: relative;
+   border-top: 2px solid #e8e4df;
+   border-bottom: 2px solid #e8e4df;
+}
+
+#paymoney {
+   width: 100%;
+   margin: 0 auto;
+   position: relative;
+   border-top: 2px solid #e8e4df;
+}
+
+#oSW, #oSI, #oSD, #oSP {
+   font-size: 15px;
+}
+
+#pay, #paymoney {
+   font-size: 20px;
+}
+
+th {
+   font-size: 9pt;
+   background-color: #202429;
+   color:white;
+}
+
+#ordersheet {
+   background-color: #202429;
+   color: white;
+}
+
+textarea {
+   resize: none;
+}
+
+input[type=button] {
+   position: relative;
+   margin: 10px auto;
+   width: 90px;
+   height: 50px;
+   border: 0px;
+   background-color: black;
+   color: white;
+   cursor: pointer;
+}
+
+input[name=nn_searchPost] {
+   text-align: center;
+   border: 0px;
+   width: 100px;
+   height: 25px;
+   background-color: #e8e4df;
+   color: black;
+   margin: 5px;
+}
+
+#paymoney th {
+   background-color: #fff;
+   text-align: center;
+}

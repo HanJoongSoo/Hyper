@@ -1,0 +1,142 @@
+@charset "UTF-8";
+
+* {
+  text-decoration: none;
+  font-family:sans-serif;
+
+}
+.searchPost{
+  border: 2px solid skyblue;
+  background-color: rgba(0, 0, 0, 0);
+  color: skyblue;
+  padding: 5px;
+  margin-left: -3px;
+  border-radius: 5px;
+}
+.searchPost:hover{
+  cursor: pointer;
+}
+.searchPost:active{
+  transform: scale(0.97);
+  /* 클릭하면 살짝 줄어듬 */
+}
+.joinForm {
+  position:relative;
+  width:400px;
+  padding: 30px 20px;
+  background-color:#FFF;
+  text-align:center;
+  border-radius: 15px;
+  margin: 0 auto;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+}
+
+.joinForm h2 {
+  text-align: center;
+  margin: 30px;
+}
+
+.textForm {
+  border-bottom: 2px solid #adadad;
+  margin: 15px;
+  padding: 5px 5px;
+}
+
+
+.id {
+  width: 100%;
+  border:none;
+  outline:none;
+  color: #636e72;
+  font-size:16px;
+  height:25px;
+  background: none;
+}
+
+.pw {
+  width: 100%;
+  border:none;
+  outline:none;
+  color: #636e72;
+  font-size:16px;
+  height:25px;
+  background: none;
+}
+
+.name {
+  width: 100%;
+  border:none;
+  outline:none;
+  color: #636e72;
+  font-size:16px;
+  height:25px;
+  background: none;
+}
+.zipcode {
+  width: 68%;
+  border:none;
+  outline:none;
+  color: #636e72;
+  font-size:16px;
+  height:25px;
+  background: none;
+}
+
+.email {
+  width: 100%;
+  border:none;
+  outline:none;
+  color: #636e72;
+  font-size:16px;
+  height:25px;
+  background: none;
+}
+
+.cellphoneNo {
+  width: 100%;
+  border:none;
+  outline:none;
+  color: #636e72;
+  font-size:16px;
+  height:25px;
+  background: none;
+}
+
+.btn {
+  position:relative;
+  left:40%;
+  transform: translateX(-50%);
+  margin-bottom: 40px;
+  width:80%;
+  height:40px;
+  background: linear-gradient(125deg,#81ecec,#6c5ce7,#81ecec);
+  background-position: left;
+  background-size: 200%;
+  color:white;
+  font-weight: bold;
+  border:none;
+  cursor:pointer;
+  transition: 0.4s;
+  display:inline;
+}
+
+.btn:hover {
+  background-position: right;
+}
+
+.input-Error{
+  text-align: center;
+  font-size: 14px;
+  color: red;
+}
+.input-Success{
+  text-align: center;
+  font-size: 15px;
+  color: forestgreen;
+}
+
+#joinError{
+  color: red;
+  font-size: 13px;
+  justify-content: center;
+}
